@@ -29,10 +29,10 @@ bot.on("voiceChannelJoin", (member, newChannel) => {
     channel => channel.type === 0
   );
   const msg = `${member.username} が通話をはじめました`;
-
+//jsonからIDを検索してcooldownの値をチェックしてtrueならメッセージ送信
   json.filter(function(item, index) {
     if (item.id === member.id && item.cooldown === true) {
-      bot.createMessage(textChannel.id, msg);
+      bot.createMessage(textChannel.id, msg); //メッセージ送信
     }
   });
 });
