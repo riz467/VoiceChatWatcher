@@ -7,9 +7,26 @@ const bot = new Eris(
 // Botの準備が整ったらコンソールに通知
 bot.on("ready", () => {
   console.log("Ready!");
+  const status = {};
   const guild = bot.guilds.get("464290674305531905");
-  let members = guild.members.filter(function(value){ return !value.bot });
-  console.log(members);
+  let members = guild.members.filter(function(value) {
+    return !value.bot;
+  });
+
+  let json = JSON.stringify(members);
+  json = JSON.parse(json);
+  json[0].cooldown = true;
+  json[1].cooldown = true;
+
+  console.log(json);
+
+  //関数化して値渡すとFalseで返したい
+  json.filter(function(item, index) {
+    if (item.id === member.id) {
+      item.cooldown = false;
+      console.log(item.cooldown);
+    }
+  });
 });
 
 bot.on("voiceChannelJoin", (member, newChannel) => {
