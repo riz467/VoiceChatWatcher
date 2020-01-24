@@ -5,7 +5,7 @@ const bot = new Eris(process.env.TOKEN);
 let members, json;
 const sendtextchannel = process.env.SEND_TEXT_CHANNEL; //送信するテキストチャンネル
 const serverid = process.env.SERVER_ID; //サーバーID
-const waittime = 20000; //待機時間(ミリ秒)
+const waittime = process.env.WAIT_TIME; //待機時間(ミリ秒)
 
 bot.on("ready", () => {
   console.log("Ready!");
