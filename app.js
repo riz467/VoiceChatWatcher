@@ -20,7 +20,7 @@ bot.on("ready", () => {
     json[i].cooldown = false;
   }
 
-  console.log(json);
+  //console.log(json);
   //const testch = guild.channels.filter(channel => channel.type === 0); //これでテキストチャンネル一覧が取れる、ボイスチャンネルは2
 });
 
