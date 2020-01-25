@@ -1,0 +1,4 @@
+SEND_TEXT_CHANNEL="TextChannelID"
+SERVER_ID="ServerID"
+TOKEN="BotToken"
+WAIT_TIME="1000(1sec)"

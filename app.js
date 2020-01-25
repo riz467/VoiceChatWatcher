@@ -19,9 +19,6 @@ bot.on("ready", () => {
   for (let i = 0; i < json.length; i++) {
     json[i].cooldown = false;
   }
-
-  //console.log(json);
-  //const testch = guild.channels.filter(channel => channel.type === 0); //これでテキストチャンネル一覧が取れる、ボイスチャンネルは2
 });
 
 // 入室
@@ -47,7 +44,7 @@ bot.on("voiceChannelLeave", (member, oldChannel) => {
   //IDが一致するユーザーのcooldownをFalseにして、n分後Trueにする
   json.filter(function(item, index) {
     if (item.id === member.id && item.cooldown === false) {
-      bot.createMessage(textChannel.id, msg);
+      bot.createMessage(textChannel.id, msg); //メッセージ送信
       item.cooldown = true;
       console.log(`${member.username}を${item.cooldown}にしました`);
       setTimeout(function() {
