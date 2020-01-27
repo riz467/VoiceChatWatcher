@@ -44,7 +44,7 @@ bot.on("voiceChannelLeave", (member, oldChannel) => {
   //IDが一致するユーザーのcooldownをFalseにして、n分後Trueにする
   json.filter(function(item, index) {
     if (item.id === member.id && item.cooldown === false) {
-      bot.createMessage(textChannel.id, msg); //メッセージ送信
+      //bot.createMessage(textChannel.id, msg); //メッセージ送信
       item.cooldown = true;
       console.log(`${member.username}を${item.cooldown}にしました`);
       setTimeout(function() {
