@@ -35,7 +35,8 @@ bot.on("voiceChannelJoin", (member, newChannel) => {
   const textChannel = newChannel.guild.channels.find(
     channel => channel.id === sendtextchannel
   );
-  const msg = `**${member.username}** が **${newChannel.name}** に入室しました`;
+  const username = member.nick != null ? member.nick : member.username;
+  const msg = `**${username}** が **${newChannel.name}** に入室しました`;
   //jsonからIDを検索してcooldownの値がfalseならメッセージ送信
   json.filter(function(item, index) {
     if (item.id === member.id && item.cooldown === false) {
@@ -49,7 +50,8 @@ bot.on("voiceChannelLeave", (member, oldChannel) => {
   const textChannel = oldChannel.guild.channels.find(
     channel => channel.id === sendtextchannel
   );
-  const msg = `**${member.username}** が **${oldChannel.name}** から退室しました`;
+  const username = member.nick != null ? member.nick : member.username;
+  const msg = `**${username}** が **${oldChannel.name}** から退室しました`;
   //IDが一致するユーザーのcooldownをFalseにして、n分後Trueにする
   json.filter(function(item, index) {
     if (item.id === member.id && item.cooldown === false) {
